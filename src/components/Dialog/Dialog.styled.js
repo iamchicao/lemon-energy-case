@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-//DialogContainer, DialogOverlay, DialogContent
-
 export const DialogContainer = styled.div`
   position: fixed;
   top: 0;
@@ -33,7 +31,6 @@ export const DialogContent = styled.div`
   z-index: 1000;
 `;
 
-// Criar uma estilizacao para a classe Image, a image deve ocupar 100% do espaço
 export const Image = styled.img`
   width: 100%;
   height: 100%;
