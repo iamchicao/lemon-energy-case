@@ -36,6 +36,26 @@ export const Image = styled.img`
   height: 100%;
 `;
 
-export const TextContent = styled.p`
-  font-size: 18px;
+export const Content = styled.p`
+  font-size: 8px;
 `;
+
+export const Title = styled.h1`
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 10px;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+`;
+
