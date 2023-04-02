@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Dialog from "../components/Dialog";
+import { Menu, Button } from "./Home.styled";	
 
 export const Home = () => {
   const [open, setOpen] = useState(false);
@@ -12,9 +13,10 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      <div className="menu">
-        <button onClick={handleOpen}>Abrir Dialog</button>
-        {open && (
+      <Menu>
+        <Button onClick={handleOpen}>Abrir Dialog</Button>
+      </Menu>
+      {open && (
           <Dialog
             title="Sobre a Lemon"
             isOpen={open}
@@ -22,7 +24,6 @@ export const Home = () => {
           >
           </Dialog>
         )}
-      </div>
     </div>
   );
 };
