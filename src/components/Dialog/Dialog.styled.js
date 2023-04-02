@@ -34,14 +34,16 @@ export const DialogContent = styled.div`
 export const Image = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: 4px;
 `;
 
 export const Content = styled.p`
   font-size: 8px;
+  font-family: "Inter", sans-serif;
 `;
 
 export const Title = styled.h1`
-  font-size: 16px;
+  font-size: 22x;
   font-weight: 700;
   margin: 0;
   margin-bottom: 10px;
@@ -51,8 +53,8 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border: none;
   cursor: pointer;

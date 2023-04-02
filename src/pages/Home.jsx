@@ -12,10 +12,16 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      {/* Menu que traz a opção de abrir o Dialog */}
       <div className="menu">
         <button onClick={handleOpen}>Abrir Dialog</button>
-        <Dialog open={open} setOpen={setOpen} />
+        {open && (
+          <Dialog
+            title="Sobre a Lemon"
+            isOpen={open}
+            onClose={() => setOpen(false)}
+          >
+          </Dialog>
+        )}
       </div>
     </div>
   );

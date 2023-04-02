@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import LemonImage from "../../assets/lemon.png";
 import {
@@ -8,23 +8,41 @@ import {
   Image,
   Content,
   Title,
-  CloseButton
+  CloseButton,
 } from "./Dialog.styled";
 
-// O Dialog deve receber o título, se está aberto ou não, a função de fechar e se deve fechar ao clicar no overlay
-
 const Dialog = ({ title, isOpen, onClose, closeOnOverlayClick, children }) => {
+  const handleOverlayClick = useCallback(
+    (event) => {
+      if (event.target === event.currentTarget && closeOnOverlayClick) {
+        onClose();
+      }
+    },
+    [closeOnOverlayClick, onClose]
+  );
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
   return (
-    <DialogContainer
-      isOpen={isOpen}
-      onClose={onClose}
-      closeOnOverlayClick={closeOnOverlayClick}
-    >
-      <DialogOverlay />
-      <DialogContent>
-        {/* Aqui vem o title na esquerda e o x para fechar na direita */}
-        <Title>Como é a Lemon</Title>
-        <CloseButton onClick={onClose}>X</CloseButton>
+    <DialogContainer isOpen={isOpen}>
+      <DialogOverlay onClick={handleOverlayClick} />
+      <DialogContent onKeyDown={handleKeyDown} tabIndex={0}>
+        <Title>{title}</Title>
         <Content>
           <h1>
             Você não é apenas um pagador de contas. Chega de pagar caro na conta
@@ -51,6 +69,7 @@ const Dialog = ({ title, isOpen, onClose, closeOnOverlayClick, children }) => {
           </h1>
           {children}
         </Content>
+        <CloseButton onClick={onClose}>X</CloseButton>
       </DialogContent>
     </DialogContainer>
   );
