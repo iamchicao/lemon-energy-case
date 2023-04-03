@@ -24,17 +24,16 @@ export const DialogOverlay = styled.div`
 export const DialogContent = styled.div`
   position: relative;
   background-color: #fff;
-  border-radius: 4px;
   padding: 20px;
   width: 500px;
   max-width: 100%;
   z-index: 1000;
+  top: 50px;
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  border-radius: 4px;
 `;
 
 export const Content = styled.p`
