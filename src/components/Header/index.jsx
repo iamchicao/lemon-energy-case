@@ -13,7 +13,7 @@ const Header = () => {
     <HeaderContainer>
       <HeaderContent>
         <ButtonArrow src={arrow} />
-        <Logo src={logo} alt="logo" />
+        <Logo src={logo} alt="Logo" />
       </HeaderContent>
     </HeaderContainer>
   );
